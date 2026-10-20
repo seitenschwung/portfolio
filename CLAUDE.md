@@ -1,51 +1,37 @@
-# TODO: project name
-
-> **First session:** the TODOs below are still open. Ask the owner what is unclear, fill them
-> in, delete this note and open a PR. Keep this file under 60 lines. Tools, MCPs and box rules
-> are in the global box CLAUDE.md, don't repeat them here.
-
-## Demo content
-`public/`, `Dockerfile` and `nginx.conf` are a placeholder static site that already satisfies the
-contract below and keeps CI green. Replace them with the real project (or adapt them), then delete
-this section.
+# Seitenschwung Portfolio
 
 ## Purpose
-TODO: what this project is, for whom, and the production URL.
+Portfolio-Website von Seitenschwung (Webdesign & Websites, Philipp Nirnberger, Bünsdorf, SH).
+Ziel: Kunden gewinnen (kleine Firmen, Vereine, Selbstständige im DACH-Raum). Produktions-URL:
+offen (siehe docs/open-questions.md).
+
+## Status
+Planungsphase. Gebaut wird erst nach Freigabe von docs/research.md, design.md, plan.md durch den Owner.
+Phasen: 1 Recherche, 2 Projekte (docs/projects.md), 3 Design + Prototyp, 4 Plan. Auftrag: ~/inbox/BRIEF.md.
 
 ## Stack
-TODO: language, framework, database, notable libraries.
+Aktuell statischer Platzhalter (`public/`, nginx). Endgültige Wahl (reines HTML/CSS oder
+Astro/Eleventy im Multi-Stage-Dockerfile, Ergebnis immer in nginx) steht in docs/plan.md.
 
 ## Commands
-- Install: TODO
-- Dev server: TODO (listen on 0.0.0.0 so `dev expose` works)
-- Tests: TODO
-- Build: TODO
+- Dev: `python3 -m http.server 8080 --directory public --bind 0.0.0.0` (bis ein Generator gewählt ist)
+- Tests/Lint/Build: noch keine (kein package-lock.json). Kommen mit der Technikwahl.
+- Docker lokal: `docker build --build-arg APP_VERSION=dev -t portfolio .` (falls Docker verfügbar)
 
 ## Layout
-TODO: the few folders that matter.
+- `docs/` Recherche, Projekte, Design, Plan, offene Fragen
+- `public/` ausgelieferte Seite; `nginx.conf`, `Dockerfile`, `docker-compose.yml`: Deploy
 
 ## CI and deploy contract
-`.github/workflows/ci.yml` is a thin caller of the shared pipeline in `seitenschwung/template`,
-managed by the owner. You can't change workflow files, so build the project to fit it:
-- If `package-lock.json` exists, CI runs `npm ci`, then `npm run lint`, `npm test` and
-  `npm run build` when those scripts exist. Keep them green locally before pushing.
-- If a `Dockerfile` exists, CI builds it and runs the image hardened: read-only root
-  filesystem, `/tmp` as the only writable path, no capabilities, as the image's (non-root)
-  user. The image must:
-  - listen on port **8080**
-  - answer `GET /healthz` with 200
-  - serve `GET /version.txt` with the build argument `APP_VERSION` (the commit SHA)
-- If `/` returns HTML, CI also crawls the site with Playwright, axe (WCAG AA, serious and
-  critical findings fail) and Lighthouse (accessibility, best practices and SEO at least 90).
-- A Dockerfile stage named `test` (`FROM ... AS test`) is built first: put lint and tests there for
-  stacks without `package-lock.json`. It must not be the last stage.
-- `docker-compose.yml` keeps the CrowdSec labels (`crowdsec.enable=true`,
-  `crowdsec.labels.type=nginx`) and the json-file log rotation on every service that serves traffic.
-  The CrowdSec agent on the server reads the container logs through them. Don't remove them; the
-  type must match a parser there, so ask the owner before changing it.
-- `docker-compose.yml` is what Coolify runs. Keep `image: ${IMAGE}`: the pipeline pushes
-  the tested image to ghcr.io and tells Coolify which tag to run.
-- `main` is production: every merge deploys after green CI. Work on branches, open PRs.
+`.github/workflows/` nicht ändern. Image: Port 8080, `/healthz` 200, `/version.txt` = APP_VERSION,
+non-root, read-only Root-FS. CI: axe (WCAG AA), Lighthouse >= 90 (Ziel 95). `docker-compose.yml`
+behält `image: ${IMAGE}`, CrowdSec-Labels (`crowdsec.enable=true`, `crowdsec.labels.type=nginx`)
+und json-file-Rotation. `main` = Produktion, nur über PRs.
 
 ## Conventions
-TODO: code style, language of the UI, anything the owner insists on.
+- UI-Sprache Deutsch (Du/Sie offen). Doku auf Deutsch.
+- Datenschutz: keine Cookies, keine Tracker, keine Drittanbieter-Requests, Schriften selbst hosten.
+- Farben aus dem Logo: Orange #FF690F (nur Flächen/Grafik/Buttons mit dunkler Schrift, 2,9:1 auf
+  Weiß), Blau #0165FE, Blau Text #0340CD (~8:1), Grau #798291, Hintergrund #FDFDFD. Kontrast prüfen.
+- Kundennamen, Screenshots, Zahlen, Zitate nur mit Zustimmung des Owners veröffentlichen.
+- Offene Fragen gebündelt in docs/open-questions.md.
