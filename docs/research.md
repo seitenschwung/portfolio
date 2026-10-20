@@ -1,6 +1,6 @@
 # Phase 1: Recherche
 
-Stand: 2026-10-20. Status: **Entwurf, Teil B (Beispielanalyse) offen**, weil der Proxy die Seiten
+Stand: 2026-10-20. Rechtsabschnitt im Gesetzeswortlaut geprüft. Status: **Entwurf, Teil B (Beispielanalyse) offen**, weil der Proxy die Seiten
 der Beispiele sperrt (siehe `open-questions.md`, Abschnitt "Freischaltungen"). Alles unten ist
 aus Suchergebnissen belegt; wo nur Sekundärquellen vorliegen, steht das dabei. Keine Rechtsberatung.
 
@@ -42,11 +42,19 @@ aus Suchergebnissen belegt; wo nur Sekundärquellen vorliegen, steht das dabei. 
   oder "ab"-Preise nennen, eine Kontaktaufforderung pro Abschnitt.
 
 ### Recht und Datenschutz (Stand der Suchergebnisse)
-- **Impressum:** Pflicht nach § 5 DDG (früher TMG) für geschäftsmäßige Angebote. Konkrete
-  Pflichtangaben für Seitenschwung (Name, Anschrift, E-Mail, ggf. USt-IdNr., Telefon) bitte
-  gegen den Gesetzestext prüfen; Quelle gesetze-im-internet.de ist derzeit nicht erreichbar.
-- **Cookies/Tracker:** § 25 TDDDG (früher TTDSG): Einwilligung nötig, außer für technisch
-  zwingend erforderliche Zugriffe. **Entscheidung: keine Cookies, keine Tracker, kein Banner.**
+- **Impressum:** § 5 Abs. 1 DDG (gesetze-im-internet.de, abgerufen 2026-10-20): leicht erkennbar,
+  unmittelbar erreichbar, ständig verfügbar. Pflichtangaben: (1) Name und Anschrift der
+  Niederlassung, (2) Angaben für schnelle elektronische Kontaktaufnahme **einschließlich E-Mail-Adresse**,
+  (3) Aufsichtsbehörde bei erlaubnispflichtiger Tätigkeit, (4) Register und Registernummer, falls
+  eingetragen, (5) Kammer/Berufsbezeichnung bei reglementierten Berufen, (6) **USt-IdNr. oder
+  Wirtschafts-IdNr., falls vorhanden**, (7) bis (8) Liquidation bzw. audiovisuelle Mediendienste.
+  Für Seitenschwung vermutlich relevant: 1, 2, 6; 3 bis 5 sind zu prüfen (Webdesign ist meist
+  nicht reglementiert). Konkrete Daten liefert der Owner (Frage 6), nicht ins Repo vor Freigabe.
+  Zusätzlich Abs. 2: weitere Informationspflichten aus anderen Gesetzen bleiben unberührt.
+- **Cookies/Tracker:** § 25 TDDDG (früher TTDSG, Wortlaut geprüft): Speichern auf und Zugriff auf
+  Informationen im Endgerät nur mit Einwilligung nach klarer, umfassender Information (Abs. 1).
+  Ausnahmen (Abs. 2): reine Nachrichtenübertragung, oder **unbedingt erforderlich**, um einen vom
+  Nutzer ausdrücklich gewünschten digitalen Dienst bereitzustellen. **Entscheidung: keine Cookies, keine Tracker, kein Banner.**
   Dann entfällt der Banner komplett (besser für Lighthouse und Vertrauen). Reichweitenmessung
   nur serverseitig/anonym oder gar nicht; Entscheidung beim Owner.
 - **Schriften:** LG München I, 20.01.2022, Az. 3 O 17493/20: dynamische Einbindung von Google
@@ -55,8 +63,10 @@ aus Suchergebnissen belegt; wo nur Sekundärquellen vorliegen, steht das dabei. 
   Dasselbe gilt für Karten, Videos, Icon-CDNs, reCAPTCHA: nichts von Dritten laden.
 - **Kontaktformular:** Datenschutzerklärung nennt Zweck, Speicherdauer, Empfänger. Einfachste
   saubere Lösung ist `mailto:` plus optional Formular über eigenen Endpunkt (Plan, Phase 4).
-- **Barrierefreiheit (BFSG, seit 28.06.2025):** Dienstleister-Kleinstunternehmen (unter 10
-  Personen und höchstens 2 Mio. EUR Umsatz oder Bilanzsumme) sind ausgenommen (IHK, Händlerbund).
+- **Barrierefreiheit (BFSG, seit 28.06.2025):** § 3 Abs. 3 BFSG (Wortlaut geprüft): Abs. 1 gilt
+  „nicht für Kleinstunternehmen, die Dienstleistungen anbieten oder erbringen“. Die Definition
+  (unter 10 Personen und höchstens 2 Mio. EUR Umsatz oder Bilanzsumme) steht nicht in § 3, sondern
+  laut IHK/Händlerbund in der EU-Empfehlung; sie ist hier nicht im Wortlaut geprüft.
   Für Seitenschwung selbst damit nicht verpflichtend; **für Kunden mit Online-Shop oder
   B2C-Dienstleistung kann es relevant sein** und ist ein Verkaufsargument. Wir bauen trotzdem
   nach WCAG 2.2 AA. Behauptungen über Bußgelder stammen aus Anbieter-Blogs: ungeprüft.
