@@ -14,7 +14,8 @@ Die Fragen an den Owner stehen unten und werden nach dem Merge von PR #1 in `ope
 | Nirnberger/nora-website | nur README-Titel | Nein |
 | der Blueprint | Blueprint (nextjs/fastapi nur oberflächlich angesehen) | Als Qualitätsanspruch, kein Kundenprojekt |
 | Verwaltungs-Software (privat) | privat, nicht gelesen | Nur mit Zustimmung |
-| ZwW CAU Kiel e.V., nora-solcher, gruppe42 | Repos nicht sichtbar | Nur mit Angaben des Owners |
+| ZwW CAU Kiel e.V. | von Seitenschwung gebaut, kein Repo in der Organisation | Ja, sobald der Owner die Fakten liefert (Referenz mit Freigabe) |
+| nora-solcher, gruppe42 | Repos nicht sichtbar | Nur mit Angaben des Owners |
 
 Die Klone sind flach (1 Commit), die Historie ist nicht auswertbar.
 
@@ -25,8 +26,26 @@ Die Klone sind flach (1 Commit), die Historie ist nicht auswertbar.
 - **Pipeline:** Seite prüfen (JS/JSON-Syntax, alle Links, keine Fremdhost-Anfragen), Image gehärtet testen, danach ghcr.io und Deploy über Coolify mit Prüfung von `/version.txt` und automatischem Rollback.
 - **Offen:** Screenshots der Werke (Urheberrecht des Künstlers), Zitat gibt es keines.
 
+## Fallstudie 2: Zentrum für wissenschaftliche Weiterbildung CAU Kiel e. V. (Verein, Kiel)
+Live: <https://zww-kiel.de>. Referenzprojekt mit Freigabe; vom Owner gebaut. Alle Angaben unten sind
+von der Live-Seite oder durch eigene Messung belegt (Stand 2026-10-21). **Aufgabe des Vereins und
+Ergebnisse kennt nur der Owner** (siehe `open-questions.md`, Nr. 10); dazu steht hier nichts.
+
+Screenshots folgen, sobald die Bildrechte geklärt sind.
+
+- **Inhalt und Aufbau (sichtbar):** Startseite mit klarer Aussage („Berufsbegleitende Masterstudiengänge für Fach- und Führungskräfte im Gesundheitswesen“), zwei Handlungsaufrufen („Unsere Studiengänge“, „Über uns“), den zwei Masterstudiengängen als Karten, Newsletter-Beitrag, Kontaktblock mit Telefon und E-Mail sowie Fußnavigation mit Impressum und Datenschutz. Hauptnavigation: Studiengänge, NOKI Kiel, Aktuelles, Über uns, Kontakt. Sprungmarke „Zum Inhalt springen“ vorhanden, Seitensprache `de`.
+- **Technik (aus dem Quelltext):** WordPress mit dem Theme Kadence und Elementor; HSTS gesetzt. Alle beim Laden beobachteten Anfragen gehen an die eigene Domain (16 Anfragen in einem Lighthouse-Lauf, keine Fremdhosts).
+- **Gemessen** (Lighthouse CLI, je drei Läufe, 2026-10-21, von der Entwicklungsbox, Simulation; Einzelmessungen, keine Echtnutzerdaten):
+
+| Profil | Performance | Barrierefreiheit | Best Practices | SEO | LCP | CLS | TBT |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobil | 100 / 100 / 100 | 96 / 96 / 96 | 100 / 100 / 100 | 100 / 100 / 100 | 1,4 / 1,4 / 1,5 s | 0 / 0 / 0 | 30 / 10 / 50 ms |
+| Desktop | 100 / 100 / 100 | 100 / 100 / 100 | 100 / 100 / 100 | 100 / 100 / 100 | 0,4 s (alle) | 0 / 0,001 / 0 | 0 ms (alle) |
+
+- **Offen:** Aufgabe des Vereins, Ergebnis, Zitat; Bildrechte für Screenshots.
+
 ## Weitere Kundenseiten (Platzhalter, Angaben nötig)
-habibihermanos, lola-dieber, jacky, nora, ZwW CAU Kiel e.V., gruppe42: ohne Angaben schreibe ich nichts. Je Projekt brauche ich:
+habibihermanos, lola-dieber, jacky, nora, gruppe42: ohne Angaben schreibe ich nichts. Je Projekt brauche ich:
 1. Live-URL (genaue Schreibweise)
 2. Ausgangsproblem in einem Satz.
 3. Was wurde gebaut, Besonderheiten?
