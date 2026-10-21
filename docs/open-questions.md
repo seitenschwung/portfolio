@@ -19,3 +19,14 @@ sowie die Domains der Beispiele, die du gut findest. Sag mir, welche du erlaubst
 6. Impressumsdaten (Anschrift, Telefon, USt-IdNr. / Kleinunternehmer) und Domain.
 7. Reichweitenmessung: keine, oder anonym serverseitig?
 8. Kontaktweg: nur E-Mail/Telefon oder Formular?
+
+## Projekte
+9. Je Kundenprojekt: Name, Live-URL (genaue Schreibweise), Branche, was gebaut wurde, Ergebnis, Screenshots erlaubt? Für gruppe42, nora-solcher, habibihermanos, lola-dieber, jacky, nora-website.
+10. ZwW CAU Kiel e.V. (Referenz mit Freigabe), kein Repo vorhanden:
+    - Live-URL
+    - Aufgabe des Vereins (vorher/nachher)
+    - Was gebaut wurde: CMS oder Theme oder statisch, Inhalte, Barrierefreiheit, Pflege durch den Verein
+    - Ergebnis (nur Belegtes), sind Screenshots erlaubt, gibt es ein Zitat
+    - Bildrechte: wer hält die Rechte am Hero-Foto der Startseite (Verein, Fotograf, Stockfoto mit Lizenz)? Ohne Klärung zeige ich keine Screenshots
+11. habibihermanos, lola-dieber, jacky, nora-website enthalten nur Template-Stand: wo liegt die echte Arbeit?
+12. simonernstnirnberger.at: Werkfotos als Screenshots zeigen (Urheberrecht des Künstlers klären)?
